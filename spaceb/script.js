@@ -1,11 +1,4 @@
 /***** Cookie Utility *****/
-setCookie('powerCost', powerCost);
-setCookie('auto', auto);
-setCookie('autoCost', autoCost);
-}
-
-
-/***** Add Score *****/
 function addScore(amount, isManual = false) {
 score += amount;
 if (isManual) manualClicks++;
@@ -22,6 +15,15 @@ setTimeout(() => pressBox.classList.remove('active'), 80);
 document.addEventListener('keydown', e => {
 if (e.code === 'Space' && !e.repeat) {
 e.preventDefault();
+addScore(power, true);
+}
+});
+
+
+// 画面クリック時に必ずフォーカスを当てる
+window.addEventListener('click', () => {
+document.body.focus();
+});
 addScore(power, true);
 }
 });
